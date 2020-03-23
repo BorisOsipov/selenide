@@ -14,6 +14,8 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.TargetLocator;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -206,6 +208,12 @@ public class SelenideTargetLocator implements TargetLocator {
     catch (TimeoutException e) {
       throw windowNotFoundError("No window found with name or handle or title: " + nameOrHandleOrTitle, e);
     }
+  }
+
+  @Override
+  @Nonnull
+  public WebDriver newWindow(WindowType typeHint) {
+    return webDriver.switchTo().newWindow(typeHint);
   }
 
   private SelenideWait Wait() {
