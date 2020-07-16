@@ -21,6 +21,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.time.Duration;
 
+import static com.codeborne.selenide.impl.WebElementUtils.unwrap;
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 import static org.openqa.selenium.support.ui.ExpectedConditions.frameToBeAvailableAndSwitchToIt;
 
@@ -74,7 +75,8 @@ public class SelenideTargetLocator implements TargetLocator {
 
   @Override
   @Nonnull
-  public WebDriver frame(WebElement frameElement) {
+  public WebDriver frame(WebElement frame) {
+    WebElement frameElement = unwrap(frame);
     try {
       return Wait().until(frameToBeAvailableAndSwitchToIt(frameElement));
     }
