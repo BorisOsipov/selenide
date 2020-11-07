@@ -19,6 +19,7 @@ jobs:
         with:
           java-version: '11'
       - name: Setup Firefox
+        if: ${{ matrix.gradle-task != 'check' }}
         run: |
           sudo add-apt-repository ppa:ubuntu-mozilla-daily/ppa
           sudo apt-get update
