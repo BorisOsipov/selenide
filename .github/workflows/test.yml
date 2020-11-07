@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        gradle-task: [ 'check', 'Grid', 'firefox_headless', 'chrome_headless' ]
+        gradle-task: [ 'check', 'grid', 'firefox_headless', 'chrome_headless' ]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,7 +23,6 @@ jobs:
           sudo add-apt-repository ppa:ubuntu-mozilla-daily/ppa
           sudo apt-get update
           sudo apt-get install firefox-trunk
-          npm run test:e2e:firefox
       - name: Build with Gradle
         run: ./gradlew ${{ matrix.gradle-task }} --no-daemon --console=plain -i
       - uses: actions/upload-artifact@v2
