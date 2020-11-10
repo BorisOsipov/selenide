@@ -24,7 +24,7 @@ tasks.withType(JavaCompile) {
 }
 compileJava.options.debugOptions.debugLevel = "source,lines,vars"
 
-sourceCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_11
 
 defaultTasks 'check', 'test', 'install'
 
