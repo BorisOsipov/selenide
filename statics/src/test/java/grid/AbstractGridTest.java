@@ -21,6 +21,7 @@ abstract class AbstractGridTest extends IntegrationTest {
     timeout = 4000;
 
     hubPort = findFreePort();
+    System.setProperty("LOGGING_ENABLE", "false");
     Main.main(new String[]{"standalone", "--port", String.valueOf(hubPort)});
   }
 
