@@ -62,4 +62,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: java-builtin.sarif
-          path: .
+          path: results/java-builtin.sarif
