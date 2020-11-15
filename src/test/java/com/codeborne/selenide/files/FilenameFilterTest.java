@@ -1,6 +1,5 @@
 package com.codeborne.selenide.files;
 
-import com.codeborne.selenide.proxy.DownloadedFile;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -22,5 +21,10 @@ final class FilenameFilterTest {
   @Test
   void description() {
     assertThat(filter.description()).isEqualTo(" with file name \"cv.pdf\"");
+  }
+
+  @Test
+  void isNotEmpty() {
+    assertThat(filter.isEmpty()).isFalse();
   }
 }

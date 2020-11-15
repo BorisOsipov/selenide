@@ -1,6 +1,5 @@
 package com.codeborne.selenide.files;
 
-import com.codeborne.selenide.proxy.DownloadedFile;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -25,4 +24,8 @@ final class EmptyFileFilterTest {
     assertThat(filter.description()).isEqualTo("");
   }
 
+  @Test
+  void isEmpty() {
+    assertThat(filter.isEmpty()).isTrue();
+  }
 }

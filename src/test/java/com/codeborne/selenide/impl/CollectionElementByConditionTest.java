@@ -19,7 +19,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 final class CollectionElementByConditionTest implements WithAssertions {
-  private Driver driver = new DriverStub();
+  private final Driver driver = new DriverStub();
 
   @Test
   void wrap() {
@@ -80,7 +80,6 @@ final class CollectionElementByConditionTest implements WithAssertions {
     assertThat(elementNotFoundError)
       .hasMessage(String.format("Element not found {ul#employees li.employee.findBy(visible)}%n" +
         "Expected: visible%n" +
-        "Screenshot: null%n" +
         "Timeout: 0 ms.%n" +
         "Caused by: NoSuchElementException: with class: employee"));
   }
@@ -100,7 +99,6 @@ final class CollectionElementByConditionTest implements WithAssertions {
     assertThat(elementNotFoundError)
       .hasMessage(String.format("Element not found {ul#employees li.employee.findBy(visible)}%n" +
         "Expected: Reason description%n" +
-        "Screenshot: null%n" +
         "Timeout: 0 ms.%n" +
         "Caused by: java.lang.Error: Error message"));
   }

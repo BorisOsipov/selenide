@@ -12,9 +12,6 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import static com.codeborne.selenide.WebDriverRunner.driver;
-import static com.codeborne.selenide.ex.ErrorMessages.screenshot;
-
 /**
  * Usage:
  * <pre>  {@literal @}Rule
@@ -28,7 +25,7 @@ import static com.codeborne.selenide.ex.ErrorMessages.screenshot;
  */
 @ParametersAreNonnullByDefault
 public class ScreenShooter extends TestWatcher {
-  private final Logger log = LoggerFactory.getLogger(getClass());
+  private static final Logger log = LoggerFactory.getLogger(ScreenShooter.class);
 
   public boolean captureSuccessfulTests;
 
@@ -55,14 +52,14 @@ public class ScreenShooter extends TestWatcher {
   @Override
   protected void succeeded(Description test) {
     if (captureSuccessfulTests) {
-      log.info(screenshot(driver()));
+      log.info(Screenshots.saveScreenshotAndPageSource());
     }
   }
 
   @Override
   protected void failed(Throwable e, Description description) {
     if (!(e instanceof UIAssertionError)) {
-      log.info(screenshot(driver()));
+      log.info(Screenshots.saveScreenshotAndPageSource());
     }
   }
 
