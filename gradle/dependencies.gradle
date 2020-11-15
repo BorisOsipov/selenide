@@ -50,6 +50,8 @@ dependencies {
   implementation('org.slf4j:slf4j-api:1.7.30')
   testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
   testRuntimeOnly('org.slf4j:slf4j-simple:1.7.30')
+  // https://mvnrepository.com/artifact/javax.servlet/servlet-api
+  api('javax.servlet:servlet-api:2.5')
 }
 
 task libsProd(type: Sync) {
