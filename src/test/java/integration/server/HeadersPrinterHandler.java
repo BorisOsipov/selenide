@@ -16,7 +16,7 @@ class HeadersPrinterHandler extends BaseHandler {
     StringBuilder html = new StringBuilder("<html><body>").append(path).append("!<br>");
 
     for (String header : headers) {
-      for (String value : list(request.getHeaders(header))) {
+      for (Object value : list(request.getHeaders(header))) {
         html.append("<br>").append(header).append("=").append(value);
       }
     }
